@@ -34,7 +34,7 @@
                                 <Label FontSize="34" TextColor="Aqua" FontAttributes="Bold" Text="E"/>
                             </HorizontalStackLayout>
                             <Label
-                                Text="a la Banque Scotia"
+                                Text="a la Banque Scotia, [nom utilisateur]! "
                                 FontSize="24"
                                 FontAttributes="Bold"
                                 />

@@ -4,9 +4,52 @@
              x:Class="SimulateurATM.Views.AccountPage"
              Title="Comptes">
     <VerticalStackLayout>
-        <Label 
-            Text="Compte principal"
-            VerticalOptions="Center" 
-            HorizontalOptions="Center" />
+        <Grid Padding="16" RowSpacing="2" ColumnSpacing="2"
+          RowDefinitions="2*,*,*,*,*,*"
+          ColumnDefinitions="*,*,*,*">
+
+
+            <Button Text="0" Grid.Row="1" Grid.Column="0"
+               />
+            <Button Text="1" Grid.Row="1" Grid.Column="1"
+               />
+            <Button Text="2" Grid.Row="1" Grid.Column="2"
+               />
+            <Button Text="3" Grid.Row="1" Grid.Column="3"
+               />
+            
+
+            <Button Text="4" Grid.Row="2" Grid.Column="0"
+               />
+            <Button Text="5" Grid.Row="2" Grid.Column="1"
+               />
+            <Button Text="6" Grid.Row="2" Grid.Column="2"
+               />
+            <Button Text="7" Grid.Row="2" Grid.Column="3"
+               />
+
+            <Button Text="8" Grid.Row="3" Grid.Column="0"
+              />
+            <Button Text="9" Grid.Row="3" Grid.Column="1"
+              />
+            <Button Text="." Grid.Row="3" Grid.Column="2"
+              />
+            <Button Text="C" Grid.Row="3" Grid.Column="3"
+               />
+
+
+            <Label x:Name="resultText"
+               FontSize="64" FontAttributes="Bold" Text="0"
+               HorizontalTextAlignment="Start"
+               VerticalTextAlignment="End" Grid.Row="5" 
+               TextColor="{StaticResource Light}"
+               LineBreakMode="NoWrap" Grid.ColumnSpan="0" />
+
+            <BoxView BackgroundColor="{StaticResource LightGray}" HeightRequest="1"
+                 Grid.Row="6" VerticalOptions="End"
+                 Grid.ColumnSpan="4"
+                 />
+
+        </Grid>
     </VerticalStackLayout>
 </ContentPage>
