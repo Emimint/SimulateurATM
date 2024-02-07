@@ -7,6 +7,13 @@
             InitializeComponent();
 
             MainPage = new AppShell();
+
+            Microsoft.Maui.Handlers.EntryHandler.Mapper.AppendToMapping("NoUnderLine", (handler, view) =>
+            {
+#if __ANDROID__
+            (handler.PlatformView as Android.Views.View).SetBackgroundColor(Microsoft.Maui.Graphics.Colors.Transparent.ToAndroid());
+#endif
+            });
         }
     }
 }
