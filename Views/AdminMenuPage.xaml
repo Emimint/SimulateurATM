@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="SimulateurATM.Views.AdminMenuPage"
+             Title="AdminMenuPage">
+    <VerticalStackLayout>
+        <Label Text="Welcome to menu administrateur" VerticalOptions="Center" HorizontalOptions="Center" />
+        
+        <Button Text="Paiement des interets" Clicked="OnClickedPaiementInteret"/>
+        <Button Text="Comptes cheques" Clicked="OnClickedComptesCheques"/>
+        <Button Text="Comptes epargnes" Clicked="OnClickedComptesEpargnes"/>
+        <Button Text="Liste des clients" Clicked="OnClickedListeClients"/>
+        
+    </VerticalStackLayout>
+</ContentPage>
