@@ -1,68 +1,33 @@
 <?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-             x:Class="SimulateurATM.Views.LoginPage"
+             x:Class="SimulateurATM.Views.LoginPage" 
+             BackgroundColor="DarkRed"
              Shell.NavBarIsVisible="False"
              xmlns:mct="clr-namespace:CommunityToolkit.Maui.Behaviors;assembly=CommunityToolkit.Maui"
              Title="Connexion">
-    <Grid RowDefinitions="2*,*" Margin="0,10,0,0">
-        <VerticalStackLayout Padding="10" VerticalOptions="Center" HorizontalOptions="Center">
-            <Frame BorderColor="Gray"
-               CornerRadius="10"
-               HasShadow="True"
-               Margin="0,-20,0,0"
-               ZIndex="0"
-               Padding="8">
-                <Frame.Shadow>
-                    <Shadow Brush="Black"
-                Offset="20,20"
-                Radius="10"
-                Opacity="0.9" />
-                </Frame.Shadow>
-                <StackLayout Padding="10">
-                    <VerticalStackLayout Padding="10" BackgroundColor="{StaticResource White}">
-                        <Label Text="Guichet Automatique ATM"
-                       FontSize="30"
-                       FontAttributes="Bold"
-                       TextColor="Black"
-                       FontFamily="Consolas"
-                       Padding="5"/>
-                    </VerticalStackLayout>
 
-                    <VerticalStackLayout Padding="10">
-                        <Frame CornerRadius="10" Padding="3" Margin="0,10,0,0">
-                            <VerticalStackLayout>
+    <VerticalStackLayout Margin="25" Padding="30, 60, 30, 30" Spacing="10" >
+        <HorizontalStackLayout HorizontalOptions="Center">
+            <Label FontSize="34" TextColor="Green" FontAttributes="Bold" Text="B"/>
+            <Label FontSize="34" TextColor="DarkOrange" FontAttributes="Bold" Text="I"/>
+            <Label FontSize="34" TextColor="AliceBlue" FontAttributes="Bold" Text="E"/>
+            <Label FontSize="34" TextColor="Red" FontAttributes="Bold" Text="N"/>
+            <Label FontSize="34" TextColor="Purple" FontAttributes="Bold" Text="V"/>
+            <Label FontSize="34" TextColor="Brown" FontAttributes="Bold" Text="E"/>
+            <Label FontSize="34" TextColor="SkyBlue" FontAttributes="Bold" Text="N"/>
+            <Label FontSize="34" TextColor="OrangeRed" FontAttributes="Bold" Text="U"/>
+            <Label FontSize="34" TextColor="Aqua" FontAttributes="Bold" Text="E"/>
+        </HorizontalStackLayout >
+        <Label Text="a la Banque Scotia" HorizontalTextAlignment="Center" FontSize="24" FontAttributes="Bold" />
 
-                                <Entry x:Name="Username" Text="{Binding Email,Mode=TwoWay}" Margin="5,0,0,0" Placeholder="Username" FontSize="18">
-                                </Entry>
-
-                            </VerticalStackLayout>
-                        </Frame>
-                        <VerticalStackLayout Padding="0" Margin="0,5,0,0">
-                            <Frame CornerRadius="10" Padding="3" Margin="0,10,0,0">
-                                <Entry x:Name="Password" Text="{Binding Password,Mode=TwoWay}" Margin="5,0,0,0" Placeholder="NIP"
-                                   IsPassword="True" FontSize="18">
-                                    <Entry.Behaviors>
-
-                                    </Entry.Behaviors>
-                                </Entry>
-                            </Frame>
-                        </VerticalStackLayout>
+        <Label Text="Guichet Automatique ATM" FontSize="30" HorizontalTextAlignment="Center" Margin="0,10,0,10" TextColor="AntiqueWhite"/>
+        <Entry x:Name="Username" Text="{Binding Email,Mode=TwoWay}" Placeholder="Username" Margin="0,0,0,10 " FontSize="18" BackgroundColor="AntiqueWhite"/>
+        <Entry x:Name="Password" Text="{Binding Password,Mode=TwoWay}" IsPassword="True" Placeholder="NIP" FontSize="18" BackgroundColor="AntiqueWhite" />
+        <Button x:Name="LoginButton" Text="Connexion" Margin="0,10,0,0" CornerRadius="30" BorderColor="AntiqueWhite" FontSize="18" FontAttributes="Bold" BorderWidth="10"  Background="Transparent" Clicked="LoginButton_Clicked"/>
 
 
-                        <Button Margin="0,20,0,0"
-                                x:Name="LoginButton"
-                                Clicked="LoginButton_Clicked"
-                                Text="Connexion" />
+    </VerticalStackLayout>
 
-                        <BoxView Color="Black"
-                                 Margin="0,20,0,0"
-                                 HeightRequest="2"
-                                 HorizontalOptions="Fill" />
 
-                    </VerticalStackLayout>
-                </StackLayout>
-            </Frame>
-        </VerticalStackLayout>
-    </Grid>
 </ContentPage>
