@@ -1,6 +1,7 @@
 using Microsoft.Maui.Controls;
 using System.Windows.Input;
 
+
 namespace SimulateurATM.Views
 {
     public partial class GuichetPage : ContentPage
@@ -10,14 +11,9 @@ namespace SimulateurATM.Views
         public GuichetPage()
         {
             InitializeComponent();
-           // BindingContext = new GuichetPage();
-            AddCharCommand = new Command<string>(ExecuteAddCharCommand);
+            BindingContext = new ViewModels.GuichetPageViewModel();
         }
 
-        private void ExecuteAddCharCommand(string param)
-        {
-            textInput.Text += param;
-        }
 
         private async void LogoutButton_Clicked(object sender, EventArgs e)
         {
