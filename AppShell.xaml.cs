@@ -9,7 +9,7 @@ namespace SimulateurATM
             InitializeComponent();
             //Register all routes
             Routing.RegisterRoute("login", typeof(LoginPage));
-            Routing.RegisterRoute("home", typeof(HomePage));
+            Routing.RegisterRoute("guichet", typeof(GuichetPage));
             Routing.RegisterRoute("logout", typeof(LogoutPage));
             Routing.RegisterRoute("account", typeof(AccountPage));
         }

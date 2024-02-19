@@ -67,13 +67,16 @@
 	  <Compile Update="Views\AccountPage.xaml.cs">
 	    <DependentUpon>AccountPage.xaml</DependentUpon>
 	  </Compile>
+	  <Compile Update="Views\GuichetPage.xaml.cs">
+	    <DependentUpon>GuichetPage.xaml</DependentUpon>
+	  </Compile>
 	</ItemGroup>
 
 	<ItemGroup>
 	  <MauiXaml Update="Views\AdminMenuPage.xaml">
 	    <Generator>MSBuild:Compile</Generator>
 	  </MauiXaml>
-	  <MauiXaml Update="Views\Guichet.xaml">
+	  <MauiXaml Update="Views\GuichetPage.xaml">
 	    <Generator>MSBuild:Compile</Generator>
 	  </MauiXaml>
 	  <MauiXaml Update="Views\HomePage.xaml">

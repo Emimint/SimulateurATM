@@ -19,7 +19,7 @@ public partial class LoginPage : ContentPage
         if (IsCredentialCorrect(Username.Text, Password.Text))
         {
             await SecureStorage.SetAsync("hasAuth", "true");
-            await Shell.Current.GoToAsync("///home");
+            await Shell.Current.GoToAsync("///guichet");
         }
         else
         {

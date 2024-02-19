@@ -19,22 +19,16 @@
         Title="Connexion" 
         ContentTemplate="{DataTemplate views:LoginPage}"
         Route="login"/>
+    
     <!--Main Page-->
     <TabBar>
-        <Tab Title="Accueil">
+        <Tab Title="Guichet">
             <ShellContent
-        Title="Accueil"
-        ContentTemplate="{DataTemplate views:HomePage}"
-        Route="home" />
-
+        Title="Guichet"
+        ContentTemplate="{DataTemplate views:GuichetPage}"
+        Route="guichet" />
         </Tab>
-        <Tab Title="Vos Comptes">
-            <ShellContent
-        Title="Vos Comptes"
-        ContentTemplate="{DataTemplate views:AccountPage}"
-        Route="account" />
 
-        </Tab>
         <Tab Title="Deconnexion" >
             <ShellContent
                   Title="Deconnexion"
