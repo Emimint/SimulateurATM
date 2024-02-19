@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="SimulateurATM.Views.LogoutPage"
+             Title="LogoutPage">
+    <Grid RowDefinitions="2*,*" Margin="0,10,0,0">
+
+        <StackLayout Padding="10" BackgroundColor="AntiqueWhite" Margin="20">
+
+            <VerticalStackLayout Padding="10">
+
+                <VerticalStackLayout Padding="0" Margin="0" HorizontalOptions="Center">
+                    <HorizontalStackLayout HorizontalOptions="Center">
+                        <Label FontSize="34" TextColor="Green" FontAttributes="Bold" Text="B"/>
+                        <Label FontSize="34" TextColor="DarkOrange" FontAttributes="Bold" Text="I"/>
+                        <Label FontSize="34" TextColor="AliceBlue" FontAttributes="Bold" Text="E"/>
+                        <Label FontSize="34" TextColor="Red" FontAttributes="Bold" Text="N"/>
+                        <Label FontSize="34" TextColor="Purple" FontAttributes="Bold" Text="V"/>
+                        <Label FontSize="34" TextColor="Brown" FontAttributes="Bold" Text="E"/>
+                        <Label FontSize="34" TextColor="SkyBlue" FontAttributes="Bold" Text="N"/>
+                        <Label FontSize="34" TextColor="OrangeRed" FontAttributes="Bold" Text="U"/>
+                        <Label FontSize="34" TextColor="Aqua" FontAttributes="Bold" Text="E"/>
+                    </HorizontalStackLayout>
+                    <Label
+                                Text="a la Banque Scotia"
+                                FontSize="24"
+                                FontAttributes="Bold"
+                                />
+                    <Label
+                                Text="Vous etes toujours connecte!"
+                                FontSize="16"
+                                />
+
+                    <Button
+                                Margin="0,20,0,0"
+                                Text="Deconnexion" FontAttributes="Bold" FontSize="18"
+                                x:Name="LogoutButton" BackgroundColor="DarkRed"
+                                Clicked="LogoutButton_Clicked"
+                                />
+                </VerticalStackLayout>
+
+            </VerticalStackLayout>
+        </StackLayout>
+    </Grid>
+</ContentPage>

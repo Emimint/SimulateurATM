@@ -1,8 +1,8 @@
 namespace SimulateurATM.Views;
 
-public partial class SettingsPage : ContentPage
+public partial class LogoutPage : ContentPage
 {
-	public SettingsPage()
+	public LogoutPage()
 	{
 		InitializeComponent();
 	}
