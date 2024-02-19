@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="SimulateurATM.Views.AdminMenuPage" Background="AntiqueWhite"
+             Title="AdminMenuPage">
+    <VerticalStackLayout Margin="30,60,30,30" >
+        <HorizontalStackLayout VerticalOptions="CenterAndExpand" HorizontalOptions="Center">
+            <Label FontSize="34" TextColor="Green" FontAttributes="Bold" Text="B"/>
+            <Label FontSize="34" TextColor="DarkOrange" FontAttributes="Bold" Text="I"/>
+            <Label FontSize="34" TextColor="AliceBlue" FontAttributes="Bold" Text="E"/>
+            <Label FontSize="34" TextColor="Red" FontAttributes="Bold" Text="N"/>
+            <Label FontSize="34" TextColor="Purple" FontAttributes="Bold" Text="V"/>
+            <Label FontSize="34" TextColor="Brown" FontAttributes="Bold" Text="E"/>
+            <Label FontSize="34" TextColor="SkyBlue" FontAttributes="Bold" Text="N"/>
+            <Label FontSize="34" TextColor="OrangeRed" FontAttributes="Bold" Text="U"/>
+            <Label FontSize="34" TextColor="Aqua" FontAttributes="Bold" Text="E"/>
+        </HorizontalStackLayout>
+
+        <Label Text="au menu administrateur" HorizontalTextAlignment="Center" FontSize="Medium" FontAttributes="Bold"
+         />
+        <Grid RowDefinitions="Auto, 10, *, 10, Auto,10, Auto" Padding="20" Margin="10" >
+            <Button Grid.Row="0" Grid.Column="1" Text="Paiement des interets" WidthRequest="300" Background="DarkRed" FontSize="20"  />
+            <Button Grid.Row="2" Grid.Column="1" Text="Comptes cheques" WidthRequest="300" Background="DarkRed" FontSize="20"/>
+            <Button Grid.Row="4" Grid.Column="1" Text="Comptes epargnes" WidthRequest="300" Background="DarkRed" FontSize="20"/>
+            <Button Text="Liste des clients" Grid.Row="6" Grid.Column="1" WidthRequest="300" Background="DarkRed" FontSize="20"/>
+        </Grid>
+
+    </VerticalStackLayout>
+</ContentPage>

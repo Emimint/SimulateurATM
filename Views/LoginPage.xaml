@@ -21,12 +21,6 @@
                 </Frame.Shadow>
                 <StackLayout Padding="10">
                     <VerticalStackLayout Padding="10" BackgroundColor="{StaticResource White}">
-                        <Image
-                Source="brushfill.png"
-                SemanticProperties.Description="Cute dot net bot waving hi to you!"
-                HeightRequest="80"
-                    IsVisible="False"
-                HorizontalOptions="Center" />
                         <Label Text="Guichet Automatique ATM"
                        FontSize="30"
                        FontAttributes="Bold"
