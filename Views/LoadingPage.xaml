@@ -6,10 +6,11 @@
              Shell.NavBarIsVisible="False"
              Title="Chargement">
     <ContentPage.Behaviors>
-        <mct:StatusBarBehavior StatusBarColor="{StaticResource Tertiary}"/>
+        <mct:StatusBarBehavior StatusBarColor="DarkRed"/>
     </ContentPage.Behaviors>
-    <VerticalStackLayout VerticalOptions="Center" HorizontalOptions="Center">
-        <ActivityIndicator Color="{StaticResource Primary}"
+    <VerticalStackLayout VerticalOptions="Center" HorizontalOptions="Center"
+      BackgroundColor="AntiqueWhite">
+        <ActivityIndicator Color="DarkRed"
                                IsRunning="True" HeightRequest="50" WidthRequest="50"
                                IsVisible="True" />
         <Label Text="Etablissement de la connexion..." HorizontalOptions="Center" />

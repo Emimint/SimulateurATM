@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="SimulateurATM.Views.GuichetPage"
+             Title="Guichet">
+    <VerticalStackLayout>
+        <HorizontalStackLayout VerticalOptions="CenterAndExpand" HorizontalOptions="Center" Margin="0,50,0,0">
+            <Label FontSize="34" TextColor="Green" FontAttributes="Bold" Text="B"/>
+            <Label FontSize="34" TextColor="DarkOrange" FontAttributes="Bold" Text="I"/>
+            <Label FontSize="34" TextColor="AliceBlue" FontAttributes="Bold" Text="E"/>
+            <Label FontSize="34" TextColor="Red" FontAttributes="Bold" Text="N"/>
+            <Label FontSize="34" TextColor="Purple" FontAttributes="Bold" Text="V"/>
+            <Label FontSize="34" TextColor="Brown" FontAttributes="Bold" Text="E"/>
+            <Label FontSize="34" TextColor="SkyBlue" FontAttributes="Bold" Text="N"/>
+            <Label FontSize="34" TextColor="OrangeRed" FontAttributes="Bold" Text="U"/>
+            <Label FontSize="34" TextColor="Aqua" FontAttributes="Bold" Text="E"/>
+        </HorizontalStackLayout>
+        <HorizontalStackLayout HorizontalOptions="Center" Padding="10, 30, 10, 0">
+            <Label Text="Bonjour Android ATM" FontSize="16" VerticalTextAlignment="Center"/>
+            <Button Text="Deconnexion" BackgroundColor="DarkRed" Margin="5"/>
+
+        </HorizontalStackLayout  >
+        <Grid HorizontalOptions="Center" VerticalOptions="Center" Padding="10" Margin="10" >
+
+            <Grid.RowDefinitions >
+                <RowDefinition Height="Auto" />
+                <RowDefinition Height="Auto" />
+                <RowDefinition Height="Auto" />
+            </Grid.RowDefinitions>
+            <Grid.ColumnDefinitions Margin="10">
+                <ColumnDefinition Width="70" />
+                <ColumnDefinition Width="70" />
+                <ColumnDefinition Width="70" />
+                <ColumnDefinition Width="70" />
+            </Grid.ColumnDefinitions >
+
+            <Button Text="0" Margin="5" Command="{Binding AddCharCommand}" CommandParameter="0" Grid.Row="0" Grid.Column="0" BackgroundColor="DarkRed"/>
+            <Button Text="1" Margin="5" Command="{Binding AddCharCommand}" CommandParameter="1" Grid.Row="0" Grid.Column="1" BackgroundColor="DarkRed"/>
+            <Button Text="2" Margin="5" Command="{Binding AddCharCommand}" CommandParameter="2" Grid.Row="0" Grid.Column="2" BackgroundColor="DarkRed"/>
+            <Button Text="3" Margin="5" Command="{Binding AddCharCommand}" CommandParameter="3" Grid.Row="0" Grid.Column="3" BackgroundColor="DarkRed"/>
+
+            <Button Text="4" Margin="5" Command="{Binding AddCharCommand}" CommandParameter="4" Grid.Row="1" Grid.Column="0" BackgroundColor="DarkRed"/>
+            <Button Text="5" Margin="5" Command="{Binding AddCharCommand}" CommandParameter="5" Grid.Row="1" Grid.Column="1" BackgroundColor="DarkRed"/>
+            <Button Text="6" Margin="5" Command="{Binding AddCharCommand}" CommandParameter="6" Grid.Row="1" Grid.Column="2" BackgroundColor="DarkRed"/>
+            <Button Text="7" Margin="5" Command="{Binding AddCharCommand}" CommandParameter="7" Grid.Row="1" Grid.Column="3" BackgroundColor="DarkRed"/>
+
+            <Button Text="8" Margin="5" Command="{Binding AddCharCommand}" CommandParameter="8" Grid.Row="2" Grid.Column="0" BackgroundColor="DarkRed"/>
+            <Button Text="9" Margin="5" Command="{Binding AddCharCommand}" CommandParameter="9" Grid.Row="2" Grid.Column="1" BackgroundColor="DarkRed"/>
+            <Button Text="." Margin="5" Command="{Binding AddCharCommand}" CommandParameter="." Grid.Row="2" Grid.Column="2" BackgroundColor="DarkRed"/>
+            <Button Text="C" Margin="5" Command="{Binding DeleteCharCommand}" CommandParameter="C" Grid.Row="2" Grid.Column="3" BackgroundColor="DarkRed"/>
+        </Grid>
+        <Entry Placeholder="Entrer le montant" MinimumWidthRequest="270" HorizontalOptions="Center" BackgroundColor="White"/>
+        <HorizontalStackLayout MinimumWidthRequest="270" HorizontalOptions="Center" >
+            <VerticalStackLayout HorizontalOptions="Center">
+                <RadioButton Content="Depot" IsChecked="True"/>
+                <RadioButton Content="retrait"/>
+                <RadioButton Content="Virement"/>
+            </VerticalStackLayout>
+            <VerticalStackLayout Margin="45,0">
+                <RadioButton Content="Cheque" IsChecked="True"/>
+                <RadioButton Content="Epargne"/>
+
+            </VerticalStackLayout>
+        </HorizontalStackLayout>
+        <HorizontalStackLayout HorizontalOptions="Center">
+            <Button Text="Etat de compte" BackgroundColor="DarkRed" Margin="0,5,20,5"/>
+            <Button Text="Soumettre" BackgroundColor="DarkRed" Margin="0,5,0,5"/>
+        </HorizontalStackLayout>
+    </VerticalStackLayout>
+</ContentPage>
