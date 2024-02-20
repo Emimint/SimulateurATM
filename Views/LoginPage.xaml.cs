@@ -8,7 +8,7 @@ public partial class LoginPage : ContentPage
     public LoginPage()
     {
         InitializeComponent();
-        GuichetPage.Init();
+        Guichet.Init();
     }
 
     private async void LoginButton_Clicked(object sender, EventArgs e)

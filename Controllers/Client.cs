@@ -18,13 +18,11 @@ namespace SimulateurATM.Controllers
             this.numeroNIP = numeroNIP;
         }
 
-        public string getNom() { return nom; }
 
-        public string getPrenom() {  return prenom; }
-
-        public string getUsername() { return username; }
-
-        public string getNumeroNIP() {  return numeroNIP; }
+        public string Nom { get; set; }
+        public string Prenom { get; set; }
+        public string Username { get; set; }
+        public string NumeroNIP { get; set; }
 
     }
 }
