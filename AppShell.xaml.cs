@@ -7,10 +7,6 @@ namespace SimulateurATM
         public AppShell()
         {
             InitializeComponent();
-            //Register all routes
-            Routing.RegisterRoute("login", typeof(LoginPage));
-            Routing.RegisterRoute("guichet", typeof(GuichetPage));
-            Routing.RegisterRoute("account", typeof(AccountPage));
         }
     }
 }

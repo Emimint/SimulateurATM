@@ -1,11 +1,7 @@
 <ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-             xmlns:viewModels="clr-namespace:SimulateurATM.ViewModels"
              x:Class="SimulateurATM.Views.GuichetPage"
              Title="Guichet">
-    <ContentPage.BindingContext>
-        <viewModels:GuichetPageViewModel />
-    </ContentPage.BindingContext>
     <VerticalStackLayout>
         <HorizontalStackLayout VerticalOptions="CenterAndExpand" HorizontalOptions="Center" Margin="0,50,0,0">
             <Label FontSize="34" TextColor="Green" FontAttributes="Bold" Text="B"/>
@@ -19,7 +15,7 @@
             <Label FontSize="34" TextColor="Aqua" FontAttributes="Bold" Text="E"/>
         </HorizontalStackLayout>
         <HorizontalStackLayout HorizontalOptions="Center" Padding="10, 30, 10, 0">
-            <Label Text="Bonjour Android ATM" FontSize="16" VerticalTextAlignment="Center"/>
+            <Label Text="{Binding nom, StringFormat='Bienvenue, {0}!'}" FontSize="16" VerticalTextAlignment="Center"/>
             <Button Text="Deconnexion" BackgroundColor="DarkRed" Margin="5" Clicked="LogoutButton_Clicked"/>
 
         </HorizontalStackLayout  >
@@ -52,7 +48,7 @@
             <Button x:Name="buttonDot" Text="." Margin="5" Command="{Binding AddCharCommand}" CommandParameter="." Grid.Row="2" Grid.Column="2" BackgroundColor="DarkRed"/>
             <Button x:Name="buttonC" Text="C" Margin="5" Command="{Binding DeleteCharCommand}" CommandParameter="C" Grid.Row="2" Grid.Column="3" BackgroundColor="DarkRed"/>
         </Grid>
-        <Entry x:Name="textInput" Placeholder="Entrer le montant" MinimumWidthRequest="270" HorizontalOptions="Center" BackgroundColor="White"/>
+        <Entry x:Name="textInput" Placeholder="Entrer le montant" MinimumWidthRequest="270" HorizontalOptions="Center" BackgroundColor="White" TextColor="Black"/>
         <HorizontalStackLayout MinimumWidthRequest="270" HorizontalOptions="Center" >
             <VerticalStackLayout HorizontalOptions="Center">
                 <RadioButton Content="Depot" IsChecked="True"/>
