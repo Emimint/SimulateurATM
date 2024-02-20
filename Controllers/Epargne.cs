@@ -10,13 +10,15 @@ namespace SimulateurATM.Controllers
     {
         private float tauxInteret;
 
-        //        public Epargne() { }
+        public Epargne(string numeroNIP, string numeroCompte, float soldeCompte, float tauxInteret)
+            : base(numeroNIP, numeroCompte, soldeCompte)
+        {
+            this.tauxInteret = tauxInteret;
+        }
 
-        //        public Epargne(string numeroNIP) { }
-
-        //        public void paiementInterets()
-        //        {
-
-        //        }
+        public void PaiementInterets()
+        {
+            SoldeCompte += SoldeCompte * tauxInteret;
+        }
     }
 }

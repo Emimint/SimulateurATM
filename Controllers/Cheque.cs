@@ -9,12 +9,6 @@ namespace SimulateurATM.Controllers
 {
     public class Cheque : Compte
     {
-        string numeroNIP, numeroCompte, soldeCompte;
-
-        //        public Compte() { }
-        //        public void retrait(float montant)
-        //        {
-
-        //        }
+        public Cheque(string numeroNIP, string numeroCompte, float soldeCompte) : base(numeroNIP, numeroCompte, soldeCompte) { }
     }
 }
