@@ -1,6 +1,10 @@
 using Microsoft.Maui.Controls;
 using SimulateurATM.Controllers;
 using System.Windows.Input;
+using CommunityToolkit.Maui.Alerts;
+using Microsoft.Maui;
+using System.Threading;
+using CommunityToolkit.Maui.Core;
 
 
 namespace SimulateurATM.Views
@@ -135,6 +139,37 @@ namespace SimulateurATM.Views
             {
                 await Navigation.PushAsync(new LoginPage());
             }
+        }
+
+        async private void EtatComptes_Clicked(object sender, EventArgs e)
+        {
+            foreach (var x in comptesCheque)
+            {
+                string message = $"Solde du compte chèque {x.NumeroCompte}: {x.SoldeCompte}$";
+
+                ToastDuration duration = ToastDuration.Short;
+                double fontSize = 14;
+
+                var toast = Toast.Make(message, duration, fontSize);
+
+                await toast.Show();
+            }
+
+           //  Console.WriteLine($"currentClient.getNumeroNIP(): {currentClient.getNumeroNIP()}");
+
+           // Cheque currentCheque = comptesCheque.FirstOrDefault(x => x.NumeroNIP == currentClient.getNumeroNIP());
+
+
+/*            string message = $"Solde du compte chèque : {currentCheque.SoldeCompte}";
+
+            ToastDuration duration = ToastDuration.Short;
+            double fontSize = 14;
+
+            var toast = Toast.Make(message, duration, fontSize);
+
+            await toast.Show();*/
+
+
         }
     }
 }

@@ -5,7 +5,7 @@
     <Shell.BackButtonBehavior>
         <BackButtonBehavior IsVisible="False" IsEnabled="False" />
     </Shell.BackButtonBehavior>
-    <VerticalStackLayout>
+    <VerticalStackLayout x:Name="stackLayout">
         <HorizontalStackLayout VerticalOptions="CenterAndExpand" HorizontalOptions="Center" Margin="0,50,0,0">
             <Label FontSize="34" TextColor="Green" FontAttributes="Bold" Text="B"/>
             <Label FontSize="34" TextColor="DarkOrange" FontAttributes="Bold" Text="I"/>
@@ -65,7 +65,7 @@
             </VerticalStackLayout>
         </HorizontalStackLayout>
         <HorizontalStackLayout HorizontalOptions="Center">
-            <Button Text="Etat de compte" BackgroundColor="DarkRed" Margin="0,5,20,5"/>
+            <Button Text="Etat de compte" BackgroundColor="DarkRed" Margin="0,5,20,5" Clicked="EtatComptes_Clicked"/>
             <Button Text="Soumettre" BackgroundColor="DarkRed" Margin="0,5,0,5"/>
         </HorizontalStackLayout>
     </VerticalStackLayout>
