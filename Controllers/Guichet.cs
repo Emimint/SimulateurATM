@@ -12,18 +12,34 @@ namespace SimulateurATM.Controllers
     public class Guichet
     {
 
-        static List<Client> clients;
-        static List<Compte> comptesCheque;
-        static List<Epargne> comptesEpargne;
+        public static List<Client> clients;
+        public static List<Cheque> comptesCheque;
+        public static List<Epargne> comptesEpargne;
 
         public static bool ValiderUtilisateur(string username, string nip)
         {
             foreach (Client client in clients)
             {
-                return client.getUsername()== username && client.getNumeroNIP() == nip;
+                if (client.getUsername() == username && client.getNumeroNIP() == nip)
+                {
+                    return true;
+                }
             }
             return false;
         }
+
+        public static Client getClient(string username, string nip)
+        {
+            foreach (Client client in clients)
+            {
+                if (client.getUsername() == username && client.getNumeroNIP() == nip)
+                {
+                    return client;
+                }
+            }
+            return null;
+        }
+
 
         public static float RetraitCheque(string nip, float montant)
         {
@@ -76,8 +92,5 @@ namespace SimulateurATM.Controllers
             }
             return -1;
         }
-
-        /*        Lors d’un virement, l’utilisateur doit saisir le montant et le type de virement(du compte chèque vers le compte épargne, ou vice-versa). Le montant maximum pour cette transaction est de $100,000. Le système doit permettre seulement les virements du compte chèque vers le compte épargne ou du compte épargne vers le compte chèque.*/
-
     }
 }
