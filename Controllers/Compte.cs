@@ -31,6 +31,11 @@ namespace SimulateurATM.Controllers
                 throw new Exception("Montant invalide.");
             }
 
+            if (montant > 1000)
+            {
+                throw new Exception("Montant superieure a la limite autorisee (1000$).");
+            }
+
             if (SoldeCompte < montant)
             {
                 throw new Exception("Solde insuffisant."); 
