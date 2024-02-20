@@ -1,6 +1,7 @@
 <ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="SimulateurATM.Views.GuichetPage"
+             BackgroundColor="AntiqueWhite"
              Title="Guichet">
     <Shell.BackButtonBehavior>
         <BackButtonBehavior IsVisible="False" IsEnabled="False" />
@@ -54,13 +55,13 @@
         <Entry x:Name="textInput" Placeholder="Entrer le montant" MinimumWidthRequest="270" HorizontalOptions="Center" BackgroundColor="White" TextColor="Black"/>
         <HorizontalStackLayout MinimumWidthRequest="270" HorizontalOptions="Center" >
             <VerticalStackLayout HorizontalOptions="Center">
-                <RadioButton Content="Depot" IsChecked="True"/>
-                <RadioButton Content="retrait"/>
-                <RadioButton Content="Virement"/>
+                <RadioButton Content="Depot" IsChecked="True" TextColor="Black"/>
+                <RadioButton Content="retrait" TextColor="Black"/>
+                <RadioButton Content="Virement" TextColor="Black"/>
             </VerticalStackLayout>
             <VerticalStackLayout Margin="45,0">
-                <RadioButton Content="Cheque" IsChecked="True"/>
-                <RadioButton Content="Epargne"/>
+                <RadioButton Content="Cheque" IsChecked="True" TextColor="Black"/>
+                <RadioButton Content="Epargne" TextColor="Black"/>
 
             </VerticalStackLayout>
         </HorizontalStackLayout>
