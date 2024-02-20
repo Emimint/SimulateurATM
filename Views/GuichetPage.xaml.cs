@@ -13,6 +13,8 @@ namespace SimulateurATM.Views
         public string nom { get; set; }
         public ICommand AddCharCommand { get; private set; }
 
+        public ICommand DeleteCharCommand { get; private set; }
+
         public GuichetPage() {
             InitializeComponent();
             Init();
@@ -25,6 +27,7 @@ namespace SimulateurATM.Views
             Init();
             this.nom = nom;
             AddCharCommand = new Command<string>(ExecuteAddCharCommand);
+            DeleteCharCommand = new Command(ExecuteDeleteCharCommand);
             BindingContext = this;
         }
 
@@ -33,6 +36,10 @@ namespace SimulateurATM.Views
             textInput.Text += param;
         }
 
+        private void ExecuteDeleteCharCommand()
+        {
+            textInput.Text = string.Empty;
+        }
 
         private async void LogoutButton_Clicked(object sender, EventArgs e)
         {
