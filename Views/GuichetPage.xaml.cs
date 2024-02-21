@@ -107,7 +107,7 @@ namespace SimulateurATM.Views
 
         async private void EtatComptes_Clicked(object sender, EventArgs e)
         {
-            string message = $"Votre NIP est '{currentClient.getNumeroNIP()}";
+            string message = $"Votre NIP est '{currentClient.getNumeroNIP()}; le compte cheque est {Guichet.comptesEpargne}";
 
             ToastDuration duration = ToastDuration.Short;
             double fontSize = 14;
