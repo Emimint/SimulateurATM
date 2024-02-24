@@ -12,9 +12,9 @@ namespace SimulateurATM.Controllers
     public class Guichet
     {
 
-        public static List<Client> clients;
-        public static List<Cheque> comptesCheque;
-        public static List<Epargne> comptesEpargne;
+        public static List<Client>? clients;
+        public static List<Cheque>? comptesCheque;
+        public static List<Epargne>? comptesEpargne;
 
         public static bool ValiderUtilisateur(string username, string nip)
         {
@@ -40,15 +40,39 @@ namespace SimulateurATM.Controllers
             return null;
         }
 
+        public static Cheque getCheque(string nip)
+        {
+            foreach (Cheque compte in comptesCheque)
+            {
+                if (compte.getNumeroNIP() == nip)
+                {
+                    return compte;
+                }
+            }
+            return null;
+        }
+
+        public static Epargne getEpargne(string nip)
+        {
+            foreach (Epargne compte in comptesEpargne)
+            {
+                if (compte.getNumeroNIP() == nip)
+                {
+                    return compte;
+                }
+            }
+            return null;
+        }
+
 
         public static float RetraitCheque(string nip, float montant)
         {
             foreach (Cheque compte in comptesCheque)
             {
-                if (compte.NumeroNIP == nip)
+                if (compte.getNumeroNIP() == nip)
                 {
                     compte.Retrait(montant);
-                    return compte.SoldeCompte;
+                    return compte.getSoldeCompte();
                 }
             }
             return -1;
@@ -58,10 +82,10 @@ namespace SimulateurATM.Controllers
         {
             foreach (Epargne compte in comptesEpargne)
             {
-                if (compte.NumeroNIP == nip)
+                if (compte.getNumeroNIP() == nip)
                 {
                     compte.Retrait(montant);
-                    return compte.SoldeCompte;
+                    return compte.getSoldeCompte();
                 }
             }
             return -1;
@@ -71,10 +95,10 @@ namespace SimulateurATM.Controllers
         {
             foreach (Cheque compte in comptesCheque)
             {
-                if (compte.NumeroNIP == nip)
+                if (compte.getNumeroNIP() == nip)
                 {
                     compte.Depot(montant);
-                    return compte.SoldeCompte;
+                    return compte.getSoldeCompte();
                 }
             }
             return -1;
@@ -84,10 +108,10 @@ namespace SimulateurATM.Controllers
         {
             foreach (Epargne compte in comptesEpargne)
             {
-                if (compte.NumeroNIP == nip)
+                if (compte.getNumeroNIP() == nip)
                 {
                     compte.Depot(montant);
-                    return compte.SoldeCompte;
+                    return compte.getSoldeCompte();
                 }
             }
             return -1;
