@@ -181,18 +181,16 @@ namespace SimulateurATM.Views
             bool isChequeSelected = ChequeRadioButton.IsChecked;
             bool isEpargneSelected = EpargneRadioButton.IsChecked;
 
-            if (isDepotSelected)
+            if (isDepotSelected && isChequeSelected)
             {
                 if (float.TryParse(textInput.Text, out float amount))
                 {
                     try
                     {
-
                         Guichet.DepotCheque(currentCheckingAccount.getNumeroNIP(), amount);
-                        currentCheckingAccount = Guichet.getCheque(currentCheckingAccount.getNumeroNIP()); 
                         SoldeCheque = currentCheckingAccount.getSoldeCompte();
 
-                        string message = $"Nouveau solde : {SoldeCheque}$";
+                        string message = $"Nouveau solde cheque: {SoldeCheque}$";
                         ToastDuration duration = ToastDuration.Short;
                         double fontSize = 14;
                         var toast = Toast.Make(message, duration, fontSize);
@@ -208,22 +206,131 @@ namespace SimulateurATM.Views
                     }
                 }
             }
-            else if (isRetraitSelected)
+            else if (isRetraitSelected && isChequeSelected)
             {
-                // Do something for retrait
+                if (float.TryParse(textInput.Text, out float amount))
+                {
+                    try
+                    {
+                        Guichet.RetraitCheque(currentCheckingAccount.getNumeroNIP(), amount);
+                        SoldeCheque = currentCheckingAccount.getSoldeCompte();
+
+                        string message = $"Nouveau solde cheque: {SoldeCheque}$";
+                        ToastDuration duration = ToastDuration.Short;
+                        double fontSize = 14;
+                        var toast = Toast.Make(message, duration, fontSize);
+                        await toast.Show();
+                    }
+                    catch (Exception ex)
+                    {
+                        string errorMessage = ex.Message;
+                        ToastDuration duration = ToastDuration.Short;
+                        double fontSize = 14;
+                        var toast = Toast.Make(errorMessage, duration, fontSize);
+                        await toast.Show();
+                    }
+                }
             }
-            else if (isVirementSelected)
+            else if (isDepotSelected && isEpargneSelected)
             {
-                // Do something for virement
+                if (float.TryParse(textInput.Text, out float amount))
+                {
+                    try
+                    {
+                        Guichet.DepotEpargne(currentSavingAccount.getNumeroNIP(), amount);
+                        SoldeEpargne = currentSavingAccount.getSoldeCompte();
+
+                        string message = $"Nouveau solde epargne: {SoldeEpargne}$";
+                        ToastDuration duration = ToastDuration.Short;
+                        double fontSize = 14;
+                        var toast = Toast.Make(message, duration, fontSize);
+                        await toast.Show();
+                    }
+                    catch (Exception ex)
+                    {
+                        string errorMessage = ex.Message;
+                        ToastDuration duration = ToastDuration.Short;
+                        double fontSize = 14;
+                        var toast = Toast.Make(errorMessage, duration, fontSize);
+                        await toast.Show();
+                    }
+                }
             }
 
-            if (isChequeSelected)
+            else if (isRetraitSelected && isEpargneSelected)
             {
-                // Do something for cheque
+                if (float.TryParse(textInput.Text, out float amount))
+                {
+                    try
+                    {
+                        Guichet.RetraitEpargne(currentSavingAccount.getNumeroNIP(), amount);
+                        SoldeEpargne = currentSavingAccount.getSoldeCompte();
+
+                        string message = $"Nouveau solde epargne: {SoldeEpargne}$";
+                        ToastDuration duration = ToastDuration.Short;
+                        double fontSize = 14;
+                        var toast = Toast.Make(message, duration, fontSize);
+                        await toast.Show();
+                    }
+                    catch (Exception ex)
+                    {
+                        string errorMessage = ex.Message;
+                        ToastDuration duration = ToastDuration.Short;
+                        double fontSize = 14;
+                        var toast = Toast.Make(errorMessage, duration, fontSize);
+                        await toast.Show();
+                    }
+                }
             }
-            else if (isEpargneSelected)
+            else if (isVirementSelected && isChequeSelected)
             {
-                // Do something for epargne
+                if (float.TryParse(textInput.Text, out float amount))
+                {
+                    try
+                    {
+                        Guichet.VirementCheque(currentClient.getNumeroNIP(), amount);
+                        SoldeEpargne = Guichet.getEpargne(currentClient.getNumeroNIP()).getSoldeCompte();
+                        SoldeCheque = Guichet.getCheque(currentClient.getNumeroNIP()).getSoldeCompte();
+
+                        string message = $"Virement de {amount}$ de votre compte Cheque vers votre compte Epargne.";
+                        ToastDuration duration = ToastDuration.Short;
+                        double fontSize = 14;
+                        var toast = Toast.Make(message, duration, fontSize);
+                        await toast.Show();
+                    }
+                    catch (Exception ex)
+                    {
+                        string errorMessage = ex.Message;
+                        ToastDuration duration = ToastDuration.Short;
+                        double fontSize = 14;
+                        var toast = Toast.Make(errorMessage, duration, fontSize);
+                        await toast.Show();
+                    }
+                }
+            }
+            else if (isVirementSelected && isEpargneSelected)
+            {
+                if (float.TryParse(textInput.Text, out float amount))
+                {
+                    try
+                    {
+                        Guichet.VirementEpargne(currentClient.getNumeroNIP(), amount);
+
+                        string message = $"Virement de {amount}$ de votre compte Epargne vers votre compte Cheque.";
+                        ToastDuration duration = ToastDuration.Short;
+                        double fontSize = 14;
+                        var toast = Toast.Make(message, duration, fontSize);
+                        await toast.Show();
+                    }
+                    catch (Exception ex)
+                    {
+                        string errorMessage = ex.Message;
+                        ToastDuration duration = ToastDuration.Short;
+                        double fontSize = 14;
+                        var toast = Toast.Make(errorMessage, duration, fontSize);
+                        await toast.Show();
+                    }
+                }
             }
         }
 

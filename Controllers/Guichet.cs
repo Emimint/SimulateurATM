@@ -116,5 +116,53 @@ namespace SimulateurATM.Controllers
             }
             return -1;
         }
+
+        public static void VirementCheque(string nip, float montant)
+        {
+            float soldeCheque = getCheque(nip).getSoldeCompte();
+            float soldeEpargne = getEpargne(nip).getSoldeCompte();
+
+            if (montant % 10 != 0)
+            {
+                throw new Exception("Montant invalide. Multiple de 10$ seulement.");
+            }
+
+            if (montant > 100000)
+            {
+                throw new Exception("Montant superieure a la limite de virement autorisee (100000$).");
+            }
+
+            if (montant > soldeCheque)
+            {
+                throw new Exception("Montant indisponible.");
+            }
+
+            getCheque(nip).setSoldeCompte(soldeCheque - montant);
+            getEpargne(nip).setSoldeCompte(soldeEpargne + montant);
+        }
+
+        public static void VirementEpargne(string nip, float montant)
+        {
+            float soldeEpargne = getEpargne(nip).getSoldeCompte();
+            float soldeCheque = getCheque(nip).getSoldeCompte();
+
+            if (montant % 10 != 0)
+            {
+                throw new Exception("Montant invalide. Multiple de 10$ seulement.");
+            }
+
+            if (montant > 100000)
+            {
+                throw new Exception("Montant superieure a la limite de virement autorisee (100000$).");
+            }
+
+            if (montant > soldeEpargne)
+            {
+                throw new Exception("Montant indisponible.");
+            }
+
+            getEpargne(nip).setSoldeCompte(soldeEpargne - montant);
+            getCheque(nip).setSoldeCompte(soldeCheque + montant);
+        }
     }
 }

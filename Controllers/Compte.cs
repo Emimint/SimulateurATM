@@ -27,6 +27,7 @@ namespace SimulateurATM.Controllers
 
         public float getSoldeCompte() { return soldeCompte; }
 
+        public void setSoldeCompte(float amount) { soldeCompte = amount; }
 
 
         public void Retrait(float montant)
