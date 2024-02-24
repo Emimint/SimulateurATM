@@ -5,7 +5,7 @@
              BackgroundColor="DarkRed"
              Shell.NavBarIsVisible="False"
              xmlns:mct="clr-namespace:CommunityToolkit.Maui.Behaviors;assembly=CommunityToolkit.Maui"
-             Title="Connexion">
+             >
     <Shell.BackButtonBehavior>
         <BackButtonBehavior IsVisible="False" IsEnabled="False" />
     </Shell.BackButtonBehavior>
