@@ -16,7 +16,7 @@ namespace SimulateurATM.Controllers
 
         public void PaiementInterets()
         {
-            SoldeCompte += SoldeCompte * TAUX_INTERETS;
+            soldeCompte += soldeCompte * TAUX_INTERETS;
         }
     }
 }

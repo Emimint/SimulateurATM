@@ -10,9 +10,9 @@ namespace SimulateurATM.Controllers
 {
     public abstract class Compte
     {
-        private string numeroNIP;
-        private string numeroCompte;
-        private float soldeCompte;
+        protected string numeroNIP;
+        protected string numeroCompte;
+        protected float soldeCompte;
 
         public Compte(string numeroNIP, string numeroCompte, float soldeCompte)
         {
@@ -20,9 +20,14 @@ namespace SimulateurATM.Controllers
             this.numeroCompte = numeroCompte;
             this.soldeCompte = soldeCompte;
         }
-        public string NumeroNIP { get; set; }
-        public string NumeroCompte { get; set; }
-        public float SoldeCompte { get; set; }
+
+        public string getNumeroNIP() { return numeroNIP; }
+
+        public string getNumeroCompte() { return numeroCompte; }
+
+        public float getSoldeCompte() { return soldeCompte; }
+
+
 
         public void Retrait(float montant)
         {
@@ -36,17 +41,17 @@ namespace SimulateurATM.Controllers
                 throw new Exception("Montant superieure a la limite autorisee (1000$).");
             }
 
-            if (SoldeCompte < montant)
+            if (soldeCompte < montant)
             {
                 throw new Exception("Solde insuffisant."); 
             }
 
-            SoldeCompte -= montant;
+            soldeCompte -= montant;
         }
 
         public void Depot(float montant)
         {
-            SoldeCompte += montant;
+            soldeCompte += montant;
         }
     }
 }
