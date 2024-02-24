@@ -14,7 +14,10 @@ public partial class LoginPage : ContentPage
     {
         if (Guichet.ValiderUtilisateur(Username.Text, Password.Text))
         {
-            await Navigation.PushAsync(new GuichetPage(Username.Text, Password.Text));
+            if (Username.Text == "Admin")
+                await Navigation.PushAsync(new AdminMenuPage());
+            else 
+                await Navigation.PushAsync(new GuichetPage(Username.Text, Password.Text));
         }
         else
         {

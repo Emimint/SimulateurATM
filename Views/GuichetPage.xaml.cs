@@ -147,6 +147,10 @@ namespace SimulateurATM.Views
 
             Epargne compteEpargne5 = new Epargne("7890", "E5", 9000);
             Guichet.comptesEpargne.Add(compteEpargne5);
+
+            // Creation du compte superviseur :
+            Client superviseur = new Client("Admin", "Admin", "Admin", "Nimda");
+            Guichet.clients.Add(superviseur);
         }
 
         private async void LogoutButton_Clicked(object sender, EventArgs e)
@@ -160,15 +164,6 @@ namespace SimulateurATM.Views
         async private void EtatComptes_Clicked(object sender, EventArgs e)
         {
             stackEtatComptes.IsVisible = true;
-
-            string message = $"Votre NIP est '{currentClient.getNumeroNIP()}; le compte cheque est {currentCheckingAccount.getNumeroCompte()}";
-
-            ToastDuration duration = ToastDuration.Short;
-            double fontSize = 14;
-
-            var toast = Toast.Make(message, duration, fontSize);
-
-            await toast.Show();
         }
 
         async private void OnSubmitButtonClicked(object sender, EventArgs e)

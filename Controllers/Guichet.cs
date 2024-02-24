@@ -164,5 +164,13 @@ namespace SimulateurATM.Controllers
             getEpargne(nip).setSoldeCompte(soldeEpargne - montant);
             getCheque(nip).setSoldeCompte(soldeCheque + montant);
         }
+
+        public static void payerInterets()
+        {
+            foreach (Epargne epargne in comptesEpargne)
+            {
+                epargne.PaiementInterets();
+            }
+        }
     }
 }

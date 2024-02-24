@@ -19,7 +19,7 @@
         <Label Text="au menu administrateur" HorizontalTextAlignment="Center" FontSize="Medium" FontAttributes="Bold"
          />
         <Grid RowDefinitions="Auto, 10, *, 10, Auto,10, Auto" Padding="20" Margin="10" >
-            <Button Grid.Row="0" Grid.Column="1" Text="Paiement des interets" WidthRequest="300" Background="DarkRed" FontSize="20"  />
+            <Button Grid.Row="0" Grid.Column="1" Text="Paiement des interets" WidthRequest="300" Background="DarkRed" FontSize="20"  Clicked="OnClickedPaiementInteret"/>
             <Button Grid.Row="2" Grid.Column="1" Text="Comptes cheques" WidthRequest="300" Background="DarkRed" FontSize="20"/>
             <Button Grid.Row="4" Grid.Column="1" Text="Comptes epargnes" WidthRequest="300" Background="DarkRed" FontSize="20"/>
             <Button Text="Liste des clients" Grid.Row="6" Grid.Column="1" WidthRequest="300" Background="DarkRed" FontSize="20"/>
