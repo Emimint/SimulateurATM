@@ -2,7 +2,7 @@
 <ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="SimulateurATM.Views.AdminMenuPage" Background="AntiqueWhite"
-             Title="AdminMenuPage">
+            >
     <VerticalStackLayout Margin="30,60,30,30" >
         <HorizontalStackLayout VerticalOptions="CenterAndExpand" HorizontalOptions="Center">
             <Label FontSize="34" TextColor="Green" FontAttributes="Bold" Text="B"/>
@@ -20,9 +20,9 @@
          />
         <Grid RowDefinitions="Auto, 10, *, 10, Auto,10, Auto" Padding="20" Margin="10" >
             <Button Grid.Row="0" Grid.Column="1" Text="Paiement des interets" WidthRequest="300" Background="DarkRed" FontSize="20"  Clicked="OnClickedPaiementInteret"/>
-            <Button Grid.Row="2" Grid.Column="1" Text="Comptes cheques" WidthRequest="300" Background="DarkRed" FontSize="20"/>
-            <Button Grid.Row="4" Grid.Column="1" Text="Comptes epargnes" WidthRequest="300" Background="DarkRed" FontSize="20"/>
-            <Button Text="Liste des clients" Grid.Row="6" Grid.Column="1" WidthRequest="300" Background="DarkRed" FontSize="20"/>
+            <Button Grid.Row="2" Grid.Column="1" Text="Comptes cheques" WidthRequest="300" Background="DarkRed" FontSize="20" Clicked="OnClickedComptesCheques"/>
+            <Button Grid.Row="4" Grid.Column="1" Text="Comptes epargnes" WidthRequest="300" Background="DarkRed" FontSize="20" Clicked="OnClickedComptesEpargnes"/>
+            <Button Text="Liste des clients" Grid.Row="6" Grid.Column="1" WidthRequest="300" Background="DarkRed" FontSize="20" Clicked="OnClickedListeClientsAsync"/>
         </Grid>
 
     </VerticalStackLayout>

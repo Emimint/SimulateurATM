@@ -21,18 +21,18 @@ public partial class AdminMenuPage : ContentPage
         await toast.Show();
     }
 
-    //    private async void OnClickedComptesCheques(object sender, EventArgs e)
-    //    {
-    //        await Navigation.PushAsync(new ListePage());
-    //    }
+    private async void OnClickedComptesCheques(object sender, EventArgs e)
+    {
+        await Navigation.PushAsync(new ListePage(Guichet.comptesCheque));
+    }
 
-    //    private async void OnClickedComptesEpargnes(object sender, EventArgs e)
-    //    {
-    //        await Navigation.PushAsync(new ListePage());
-    //    }
+    private async void OnClickedComptesEpargnes(object sender, EventArgs e)
+    {
+        await Navigation.PushAsync(new ListePage(Guichet.comptesEpargne));
+    }
 
-    //    private async Task OnClickedListeClientsAsync(object sender, EventArgs e)
-    //    {
-    //        await Navigation.PushAsync(new ListePage());
-    //    }
+    private async void OnClickedListeClientsAsync(object sender, EventArgs e)
+    {
+        await Navigation.PushAsync(new AccountPage(Guichet.clients));
+    }
 }
