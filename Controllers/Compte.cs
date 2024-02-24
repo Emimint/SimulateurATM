@@ -4,23 +4,61 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
+using System;
+
 namespace SimulateurATM.Controllers
 {
-    public class Compte
+    public abstract class Compte
     {
-        string numeroNIP, numeroCompte, soldeCompte;
+        protected string numeroNIP;
+        protected string numeroCompte;
+        protected float soldeCompte;
 
-        //        public Compte() { }
+        public Compte(string numeroNIP, string numeroCompte, float soldeCompte)
+        {
+            this.numeroNIP= numeroNIP;
+            this.numeroCompte = numeroCompte;
+            this.soldeCompte = soldeCompte;
+        }
 
-        //        public void retrait(float montant)
-        //        {
+        public string getNumeroNIP() { return numeroNIP; }
 
-        //        }
+        public string getNumeroCompte() { return numeroCompte; }
 
-        //        public void depot(float montant)
-        //        {
+        public float getSoldeCompte() { return soldeCompte; }
 
-        //        }
+        public void setSoldeCompte(float amount) { soldeCompte = amount; }
 
+
+        public void Retrait(float montant)
+        {
+            if(montant % 10 != 0)
+            {
+                throw new Exception("Montant invalide. Multiple de 10$ seulement.");
+            }
+
+            if (montant > 1000)
+            {
+                throw new Exception("Montant superieure a la limite autorisee (1000$).");
+            }
+
+            if (soldeCompte < montant)
+            {
+                throw new Exception("Solde insuffisant."); 
+            }
+
+            soldeCompte -= montant;
+        }
+
+        public void Depot(float montant)
+        {
+            if (montant % 10 != 0)
+            {
+                throw new Exception("Montant invalide. Multiple de 10$ seulement.");
+            }
+
+            soldeCompte += montant;
+        }
     }
 }
+

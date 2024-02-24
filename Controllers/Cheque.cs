@@ -9,12 +9,13 @@ namespace SimulateurATM.Controllers
 {
     public class Cheque : Compte
     {
-        string numeroNIP, numeroCompte, soldeCompte;
+        public string ImagePath { get; set; }
+        public Cheque(string numeroNIP, string numeroCompte, float soldeCompte) : base(numeroNIP, numeroCompte, soldeCompte) 
+        {
+            ImagePath = "cheque.jpg";
+        }
 
-        //        public Compte() { }
-        //        public void retrait(float montant)
-        //        {
+        public string DisplayInfo => $"Numero de compte: {getNumeroCompte()}, Solde du compte: {getSoldeCompte()}";
 
-        //        }
     }
 }

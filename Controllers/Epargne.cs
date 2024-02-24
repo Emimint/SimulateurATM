@@ -8,15 +8,20 @@ namespace SimulateurATM.Controllers
 {
     public class Epargne : Compte
     {
-        private float tauxInteret;
+        static float TAUX_INTERETS = 0.0125f;
+        public string ImagePath { get; set; }
 
-        //        public Epargne() { }
+        public Epargne(string numeroNIP, string numeroCompte, float soldeCompte)
+            : base(numeroNIP, numeroCompte, soldeCompte)
+        {
+            ImagePath = "epargne.png";
+        }
 
-        //        public Epargne(string numeroNIP) { }
+        public void PaiementInterets()
+        {
+            soldeCompte += soldeCompte * TAUX_INTERETS;
+        }
 
-        //        public void paiementInterets()
-        //        {
-
-        //        }
+        public string DisplayInfo => $"Numero de compte: {getNumeroCompte()}, Solde du compte: {getSoldeCompte()}";
     }
 }

@@ -1,4 +1,7 @@
-﻿namespace SimulateurATM
+﻿using SimulateurATM.Controllers;
+using SimulateurATM.Views;
+
+namespace SimulateurATM
 {
     public partial class App : Application
     {
@@ -6,14 +9,9 @@
         {
             InitializeComponent();
 
-            MainPage = new AppShell();
+            GuichetPage.Init();
 
-            Microsoft.Maui.Handlers.EntryHandler.Mapper.AppendToMapping("NoUnderLine", (handler, view) =>
-            {
-#if __ANDROID__
-            (handler.PlatformView as Android.Views.View).SetBackgroundColor(Microsoft.Maui.Graphics.Colors.Transparent.ToAndroid());
-#endif
-            });
+            MainPage = new AppShell();
         }
     }
 }
