@@ -49,7 +49,7 @@
 
             <Button x:Name="button8" Text="8" Margin="5" Command="{Binding AddCharCommand}" CommandParameter="8" Grid.Row="2" Grid.Column="0" BackgroundColor="DarkRed" TextColor="AntiqueWhite"/>
             <Button x:Name="button9" Text="9" Margin="5" Command="{Binding AddCharCommand}" CommandParameter="9" Grid.Row="2" Grid.Column="1" BackgroundColor="DarkRed" TextColor="AntiqueWhite"/>
-            <Button x:Name="buttonDot" Text="." Margin="5" Command="{Binding AddCharCommand}" CommandParameter="." Grid.Row="2" Grid.Column="2" BackgroundColor="DarkRed" TextColor="AntiqueWhite"/>
+            <Button x:Name="buttonFake" Text="." Margin="5" Grid.Row="2" Grid.Column="2" BackgroundColor="DarkRed" TextColor="AntiqueWhite"/>
             <Button x:Name="buttonC" Text="C" Margin="5" Command="{Binding DeleteCharCommand}" CommandParameter="C" Grid.Row="2" Grid.Column="3" BackgroundColor="DarkRed" TextColor="AntiqueWhite"/>
         </Grid>
         <Entry x:Name="textInput" Placeholder="Entrer le montant" MinimumWidthRequest="270" HorizontalOptions="Center" BackgroundColor="White" TextColor="Black"/>
@@ -69,5 +69,9 @@
             <Button Text="Etat de compte" BackgroundColor="DarkRed" Margin="0,5,20,5" Clicked="EtatComptes_Clicked" TextColor="AntiqueWhite"/>
             <Button Text="Soumettre" BackgroundColor="DarkRed" Margin="0,5,0,5" TextColor="AntiqueWhite"/>
         </HorizontalStackLayout>
+        <VerticalStackLayout x:Name="stackEtatComptes" HorizontalOptions="Center"  IsVisible="false">
+            <Label Text="{Binding SoldeCheque, StringFormat='Solde du compte cheque: {0}$'}" FontSize="34" TextColor="SkyBlue" FontAttributes="Bold" />
+            <Label Text="{Binding SoldeEpargne, StringFormat='Solde du compte epargne: {0}$'}" FontSize="34" TextColor="SkyBlue" FontAttributes="Bold" />
+        </VerticalStackLayout>
     </VerticalStackLayout>
 </ContentPage>
