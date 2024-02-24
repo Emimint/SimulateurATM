@@ -9,6 +9,7 @@ namespace SimulateurATM.Controllers
     public class Client
     {
        private string nom, prenom, username, numeroNIP;
+        public string ImagePath { get; set; }
 
         public Client(string nom, string prenom, string username, string numeroNIP)
         {
@@ -16,6 +17,8 @@ namespace SimulateurATM.Controllers
             this.prenom = prenom;
             this.username = username;
             this.numeroNIP = numeroNIP;
+
+            ImagePath = "client.png"; 
         }
 
         public string getNom() { return nom; }
@@ -25,6 +28,8 @@ namespace SimulateurATM.Controllers
         public string getUsername() { return username; }
 
         public string getNumeroNIP() {  return numeroNIP; }
+
+        public string DisplayInfo => $"Nom du client: {getNom()}, Prenom du client: {getPrenom()}";
 
     }
 }
