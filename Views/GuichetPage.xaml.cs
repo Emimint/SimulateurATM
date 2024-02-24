@@ -12,6 +12,8 @@ namespace SimulateurATM.Views
     public partial class GuichetPage : ContentPage
     {
         Client currentClient;
+        Cheque currentCheckingAccount;
+        Epargne currentSavingAccount;
         public string Prenom { get; private set; }
         public ICommand AddCharCommand { get; private set; }
 
@@ -28,6 +30,8 @@ namespace SimulateurATM.Views
             InitializeComponent();
             Init();
             currentClient = Guichet.getClient(username, nip);
+            currentCheckingAccount = Guichet.getCheque(nip);
+            currentSavingAccount = Guichet.getEpargne(nip);
             Prenom = currentClient.getPrenom();
             AddCharCommand = new Command<string>(ExecuteAddCharCommand);
             DeleteCharCommand = new Command(ExecuteDeleteCharCommand);
@@ -107,7 +111,9 @@ namespace SimulateurATM.Views
 
         async private void EtatComptes_Clicked(object sender, EventArgs e)
         {
-            string message = $"Votre NIP est '{currentClient.getNumeroNIP()}; le compte cheque est {Guichet.comptesEpargne}";
+            // string message = $"Votre NIP est '{currentClient.getNumeroNIP()}; le compte cheque est {Guichet.comptesCheque[0].NumeroCompte}";
+            string message = $"Votre NIP est '{currentClient.getNumeroNIP()}; le compte cheque est {currentCheckingAccount.getNumeroCompte()}";
+
 
             ToastDuration duration = ToastDuration.Short;
             double fontSize = 14;
