@@ -5,41 +5,79 @@ using CommunityToolkit.Maui.Alerts;
 using Microsoft.Maui;
 using System.Threading;
 using CommunityToolkit.Maui.Core;
+using System.ComponentModel;
 
 
 namespace SimulateurATM.Views
 {
-    public partial class GuichetPage : ContentPage
+    public partial class GuichetPage : ContentPage, INotifyPropertyChanged
     {
         Client currentClient;
         Cheque currentCheckingAccount;
         Epargne currentSavingAccount;
-        public string Prenom { get; private set; }
 
-        public float SoldeCheque { get; private set; }
+        private string _prenom;
+        private float _soldeCheque;
+        private float _soldeEpargne;
 
-        public float SoldeEpargne { get; private set; }
+        public string Prenom
+        {
+            get => _prenom;
+            private set
+            {
+                if (_prenom != value)
+                {
+                    _prenom = value;
+                    OnPropertyChanged(nameof(Prenom));
+                }
+            }
+        }
+
+        public float SoldeCheque
+        {
+            get => _soldeCheque;
+            private set
+            {
+                if (_soldeCheque != value)
+                {
+                    _soldeCheque = value;
+                    OnPropertyChanged(nameof(SoldeCheque));
+                }
+            }
+        }
+
+        public float SoldeEpargne
+        {
+            get => _soldeEpargne;
+            private set
+            {
+                if (_soldeEpargne != value)
+                {
+                    _soldeEpargne = value;
+                    OnPropertyChanged(nameof(SoldeEpargne));
+                }
+            }
+        }
+
         public ICommand AddCharCommand { get; private set; }
 
         public ICommand DeleteCharCommand { get; private set; }
 
-        public GuichetPage() {
+        public GuichetPage()
+        {
             InitializeComponent();
             Init();
         }
-    
 
         public GuichetPage(string username, string nip)
         {
             InitializeComponent();
-            Init();
 
             currentClient = Guichet.getClient(username, nip);
             currentCheckingAccount = Guichet.getCheque(nip);
             currentSavingAccount = Guichet.getEpargne(nip);
             SoldeCheque = currentCheckingAccount.getSoldeCompte();
             SoldeEpargne = currentSavingAccount.getSoldeCompte();
-
             Prenom = currentClient.getPrenom();
 
             AddCharCommand = new Command<string>(ExecuteAddCharCommand);
@@ -121,13 +159,9 @@ namespace SimulateurATM.Views
 
         async private void EtatComptes_Clicked(object sender, EventArgs e)
         {
-
             stackEtatComptes.IsVisible = true;
 
-            // string message = $"Votre NIP est '{currentClient.getNumeroNIP()}; le compte cheque est {Guichet.comptesCheque[0].NumeroCompte}";
             string message = $"Votre NIP est '{currentClient.getNumeroNIP()}; le compte cheque est {currentCheckingAccount.getNumeroCompte()}";
-
-
 
             ToastDuration duration = ToastDuration.Short;
             double fontSize = 14;
@@ -135,34 +169,69 @@ namespace SimulateurATM.Views
             var toast = Toast.Make(message, duration, fontSize);
 
             await toast.Show();
+        }
 
-/*            foreach (var x in Guichet.comptesCheque)
+        async private void OnSubmitButtonClicked(object sender, EventArgs e)
+        {
+            stackEtatComptes.IsVisible = false;
+
+            bool isDepotSelected = DepotRadioButton.IsChecked;
+            bool isRetraitSelected = RetraitRadioButton.IsChecked;
+            bool isVirementSelected = VirementRadioButton.IsChecked;
+            bool isChequeSelected = ChequeRadioButton.IsChecked;
+            bool isEpargneSelected = EpargneRadioButton.IsChecked;
+
+            if (isDepotSelected)
             {
-                string message = $"Solde du compte chèque '{x.NumeroCompte}': {x.SoldeCompte}$";
+                if (float.TryParse(textInput.Text, out float amount))
+                {
+                    try
+                    {
 
-                ToastDuration duration = ToastDuration.Short;
-                double fontSize = 14;
+                        Guichet.DepotCheque(currentCheckingAccount.getNumeroNIP(), amount);
+                        currentCheckingAccount = Guichet.getCheque(currentCheckingAccount.getNumeroNIP()); 
+                        SoldeCheque = currentCheckingAccount.getSoldeCompte();
 
-                var toast = Toast.Make(message, duration, fontSize);
+                        string message = $"Nouveau solde : {SoldeCheque}$";
+                        ToastDuration duration = ToastDuration.Short;
+                        double fontSize = 14;
+                        var toast = Toast.Make(message, duration, fontSize);
+                        await toast.Show();
+                    }
+                    catch (Exception ex)
+                    {
+                        string errorMessage = ex.Message;
+                        ToastDuration duration = ToastDuration.Short;
+                        double fontSize = 14;
+                        var toast = Toast.Make(errorMessage, duration, fontSize);
+                        await toast.Show();
+                    }
+                }
+            }
+            else if (isRetraitSelected)
+            {
+                // Do something for retrait
+            }
+            else if (isVirementSelected)
+            {
+                // Do something for virement
+            }
 
-                await toast.Show();
-            }*/
+            if (isChequeSelected)
+            {
+                // Do something for cheque
+            }
+            else if (isEpargneSelected)
+            {
+                // Do something for epargne
+            }
+        }
 
-           //  Console.WriteLine($"currentClient.getNumeroNIP(): {currentClient.getNumeroNIP()}");
+        public event PropertyChangedEventHandler PropertyChanged;
 
-           // Cheque currentCheque = comptesCheque.FirstOrDefault(x => x.NumeroNIP == currentClient.getNumeroNIP());
-
-
-/*            string message = $"Solde du compte chèque : {currentCheque.SoldeCompte}";
-
-            ToastDuration duration = ToastDuration.Short;
-            double fontSize = 14;
-
-            var toast = Toast.Make(message, duration, fontSize);
-
-            await toast.Show();*/
-
-
+        protected virtual void OnPropertyChanged(string propertyName)
+        {
+            PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
         }
     }
 }

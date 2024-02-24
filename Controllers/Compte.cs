@@ -33,7 +33,7 @@ namespace SimulateurATM.Controllers
         {
             if(montant % 10 != 0)
             {
-                throw new Exception("Montant invalide.");
+                throw new Exception("Montant invalide. Multiple de 10$ seulement.");
             }
 
             if (montant > 1000)
@@ -51,6 +51,11 @@ namespace SimulateurATM.Controllers
 
         public void Depot(float montant)
         {
+            if (montant % 10 != 0)
+            {
+                throw new Exception("Montant invalide. Multiple de 10$ seulement.");
+            }
+
             soldeCompte += montant;
         }
     }

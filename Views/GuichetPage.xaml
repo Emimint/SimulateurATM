@@ -55,19 +55,18 @@
         <Entry x:Name="textInput" Placeholder="Entrer le montant" MinimumWidthRequest="270" HorizontalOptions="Center" BackgroundColor="White" TextColor="Black"/>
         <HorizontalStackLayout MinimumWidthRequest="270" HorizontalOptions="Center" >
             <VerticalStackLayout HorizontalOptions="Center">
-                <RadioButton Content="Depot" IsChecked="True" TextColor="Black"/>
-                <RadioButton Content="retrait" TextColor="Black"/>
-                <RadioButton Content="Virement" TextColor="Black"/>
+                <RadioButton x:Name="DepotRadioButton" Content="Depot" IsChecked="True" TextColor="Black"/>
+                <RadioButton x:Name="RetraitRadioButton" Content="Retrait" TextColor="Black"/>
+                <RadioButton x:Name="VirementRadioButton" Content="Virement" TextColor="Black"/>
             </VerticalStackLayout>
             <VerticalStackLayout Margin="45,0">
-                <RadioButton Content="Cheque" IsChecked="True" TextColor="Black"/>
-                <RadioButton Content="Epargne" TextColor="Black"/>
-
+                <RadioButton x:Name="ChequeRadioButton" Content="Cheque" IsChecked="True" TextColor="Black"/>
+                <RadioButton x:Name="EpargneRadioButton" Content="Epargne" TextColor="Black"/>
             </VerticalStackLayout>
         </HorizontalStackLayout>
         <HorizontalStackLayout HorizontalOptions="Center">
             <Button Text="Etat de compte" BackgroundColor="DarkRed" Margin="0,5,20,5" Clicked="EtatComptes_Clicked" TextColor="AntiqueWhite"/>
-            <Button Text="Soumettre" BackgroundColor="DarkRed" Margin="0,5,0,5" TextColor="AntiqueWhite"/>
+            <Button Text="Soumettre" BackgroundColor="DarkRed" Margin="0,5,0,5" TextColor="AntiqueWhite"  Clicked="OnSubmitButtonClicked"/>
         </HorizontalStackLayout>
         <VerticalStackLayout x:Name="stackEtatComptes" HorizontalOptions="Center"  IsVisible="false">
             <Label Text="{Binding SoldeCheque, StringFormat='Solde du compte cheque: {0}$'}" FontSize="34" TextColor="SkyBlue" FontAttributes="Bold" />
