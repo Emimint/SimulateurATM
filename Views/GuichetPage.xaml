@@ -1,8 +1,12 @@
 <ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="SimulateurATM.Views.GuichetPage"
-             Title="Guichet">
-    <VerticalStackLayout>
+             BackgroundColor="AntiqueWhite"
+             >
+    <Shell.BackButtonBehavior>
+        <BackButtonBehavior IsVisible="False" IsEnabled="False" />
+    </Shell.BackButtonBehavior>
+    <VerticalStackLayout x:Name="stackLayout">
         <HorizontalStackLayout VerticalOptions="CenterAndExpand" HorizontalOptions="Center" Margin="0,50,0,0">
             <Label FontSize="34" TextColor="Green" FontAttributes="Bold" Text="B"/>
             <Label FontSize="34" TextColor="DarkOrange" FontAttributes="Bold" Text="I"/>
@@ -15,8 +19,8 @@
             <Label FontSize="34" TextColor="Aqua" FontAttributes="Bold" Text="E"/>
         </HorizontalStackLayout>
         <HorizontalStackLayout HorizontalOptions="Center" Padding="10, 30, 10, 0">
-            <Label Text="Bonjour Android ATM" FontSize="16" VerticalTextAlignment="Center"/>
-            <Button Text="Deconnexion" BackgroundColor="DarkRed" Margin="5" Clicked="LogoutButton_Clicked"/>
+            <Label Text="{Binding Prenom, StringFormat='Bienvenue, {0}!'}" FontSize="16" VerticalTextAlignment="Center" TextColor="Black"/>
+            <Button Text="Deconnexion" BackgroundColor="DarkRed" Margin="5" Clicked="LogoutButton_Clicked" TextColor="AntiqueWhite"/>
 
         </HorizontalStackLayout  >
         <Grid HorizontalOptions="Center" VerticalOptions="Center" Padding="10" Margin="10" >
@@ -33,37 +37,40 @@
                 <ColumnDefinition Width="70" />
             </Grid.ColumnDefinitions >
 
-            <Button x:Name="button0" Text="0" Margin="5" Command="{Binding AddCharCommand}" CommandParameter="0" Grid.Row="0" Grid.Column="0" BackgroundColor="DarkRed"/>
-            <Button x:Name="button1" Text="1" Margin="5" Command="{Binding AddCharCommand}" CommandParameter="1" Grid.Row="0" Grid.Column="1" BackgroundColor="DarkRed"/>
-            <Button x:Name="button2" Text="2" Margin="5" Command="{Binding AddCharCommand}" CommandParameter="2" Grid.Row="0" Grid.Column="2" BackgroundColor="DarkRed"/>
-            <Button x:Name="button3" Text="3" Margin="5" Command="{Binding AddCharCommand}" CommandParameter="3" Grid.Row="0" Grid.Column="3" BackgroundColor="DarkRed"/>
+            <Button x:Name="button0" Text="0" Margin="5" Command="{Binding AddCharCommand}" CommandParameter="0" Grid.Row="0" Grid.Column="0" BackgroundColor="DarkRed" TextColor="AntiqueWhite"/>
+            <Button x:Name="button1" Text="1" Margin="5" Command="{Binding AddCharCommand}" CommandParameter="1" Grid.Row="0" Grid.Column="1" BackgroundColor="DarkRed" TextColor="AntiqueWhite"/>
+            <Button x:Name="button2" Text="2" Margin="5" Command="{Binding AddCharCommand}" CommandParameter="2" Grid.Row="0" Grid.Column="2" BackgroundColor="DarkRed" TextColor="AntiqueWhite"/>
+            <Button x:Name="button3" Text="3" Margin="5" Command="{Binding AddCharCommand}" CommandParameter="3" Grid.Row="0" Grid.Column="3" BackgroundColor="DarkRed" TextColor="AntiqueWhite"/>
 
-            <Button x:Name="button4" Text="4" Margin="5" Command="{Binding AddCharCommand}" CommandParameter="4" Grid.Row="1" Grid.Column="0" BackgroundColor="DarkRed"/>
-            <Button x:Name="button5" Text="5" Margin="5" Command="{Binding AddCharCommand}" CommandParameter="5" Grid.Row="1" Grid.Column="1" BackgroundColor="DarkRed"/>
-            <Button x:Name="button6" Text="6" Margin="5" Command="{Binding AddCharCommand}" CommandParameter="6" Grid.Row="1" Grid.Column="2" BackgroundColor="DarkRed"/>
-            <Button x:Name="button7" Text="7" Margin="5" Command="{Binding AddCharCommand}" CommandParameter="7" Grid.Row="1" Grid.Column="3" BackgroundColor="DarkRed"/>
+            <Button x:Name="button4" Text="4" Margin="5" Command="{Binding AddCharCommand}" CommandParameter="4" Grid.Row="1" Grid.Column="0" BackgroundColor="DarkRed" TextColor="AntiqueWhite"/>
+            <Button x:Name="button5" Text="5" Margin="5" Command="{Binding AddCharCommand}" CommandParameter="5" Grid.Row="1" Grid.Column="1" BackgroundColor="DarkRed" TextColor="AntiqueWhite"/>
+            <Button x:Name="button6" Text="6" Margin="5" Command="{Binding AddCharCommand}" CommandParameter="6" Grid.Row="1" Grid.Column="2" BackgroundColor="DarkRed" TextColor="AntiqueWhite"/>
+            <Button x:Name="button7" Text="7" Margin="5" Command="{Binding AddCharCommand}" CommandParameter="7" Grid.Row="1" Grid.Column="3" BackgroundColor="DarkRed" TextColor="AntiqueWhite"/>
 
-            <Button x:Name="button8" Text="8" Margin="5" Command="{Binding AddCharCommand}" CommandParameter="8" Grid.Row="2" Grid.Column="0" BackgroundColor="DarkRed"/>
-            <Button x:Name="button9" Text="9" Margin="5" Command="{Binding AddCharCommand}" CommandParameter="9" Grid.Row="2" Grid.Column="1" BackgroundColor="DarkRed"/>
-            <Button x:Name="buttonDot" Text="." Margin="5" Command="{Binding AddCharCommand}" CommandParameter="." Grid.Row="2" Grid.Column="2" BackgroundColor="DarkRed"/>
-            <Button x:Name="buttonC" Text="C" Margin="5" Command="{Binding DeleteCharCommand}" CommandParameter="C" Grid.Row="2" Grid.Column="3" BackgroundColor="DarkRed"/>
+            <Button x:Name="button8" Text="8" Margin="5" Command="{Binding AddCharCommand}" CommandParameter="8" Grid.Row="2" Grid.Column="0" BackgroundColor="DarkRed" TextColor="AntiqueWhite"/>
+            <Button x:Name="button9" Text="9" Margin="5" Command="{Binding AddCharCommand}" CommandParameter="9" Grid.Row="2" Grid.Column="1" BackgroundColor="DarkRed" TextColor="AntiqueWhite"/>
+            <Button x:Name="buttonFake" Text="." Margin="5" Grid.Row="2" Grid.Column="2" BackgroundColor="DarkRed" TextColor="AntiqueWhite"/>
+            <Button x:Name="buttonC" Text="C" Margin="5" Command="{Binding DeleteCharCommand}" CommandParameter="C" Grid.Row="2" Grid.Column="3" BackgroundColor="DarkRed" TextColor="AntiqueWhite"/>
         </Grid>
-        <Entry x:Name="textInput" Placeholder="Entrer le montant" MinimumWidthRequest="270" HorizontalOptions="Center" BackgroundColor="White"/>
+        <Entry x:Name="textInput" Placeholder="Entrer le montant" MinimumWidthRequest="270" HorizontalOptions="Center" BackgroundColor="White" TextColor="Black"/>
         <HorizontalStackLayout MinimumWidthRequest="270" HorizontalOptions="Center" >
             <VerticalStackLayout HorizontalOptions="Center">
-                <RadioButton Content="Depot" IsChecked="True"/>
-                <RadioButton Content="retrait"/>
-                <RadioButton Content="Virement"/>
+                <RadioButton x:Name="DepotRadioButton" Content="Depot" IsChecked="True" TextColor="Black"/>
+                <RadioButton x:Name="RetraitRadioButton" Content="Retrait" TextColor="Black"/>
+                <RadioButton x:Name="VirementRadioButton" Content="Virement" TextColor="Black"/>
             </VerticalStackLayout>
             <VerticalStackLayout Margin="45,0">
-                <RadioButton Content="Cheque" IsChecked="True"/>
-                <RadioButton Content="Epargne"/>
-
+                <RadioButton x:Name="ChequeRadioButton" Content="Cheque" IsChecked="True" TextColor="Black"/>
+                <RadioButton x:Name="EpargneRadioButton" Content="Epargne" TextColor="Black"/>
             </VerticalStackLayout>
         </HorizontalStackLayout>
         <HorizontalStackLayout HorizontalOptions="Center">
-            <Button Text="Etat de compte" BackgroundColor="DarkRed" Margin="0,5,20,5"/>
-            <Button Text="Soumettre" BackgroundColor="DarkRed" Margin="0,5,0,5"/>
+            <Button Text="Etat de compte" BackgroundColor="DarkRed" Margin="0,5,20,5" Clicked="EtatComptes_Clicked" TextColor="AntiqueWhite"/>
+            <Button Text="Soumettre" BackgroundColor="DarkRed" Margin="0,5,0,5" TextColor="AntiqueWhite"  Clicked="OnSubmitButtonClicked"/>
         </HorizontalStackLayout>
+        <VerticalStackLayout x:Name="stackEtatComptes" HorizontalOptions="Center"  IsVisible="false">
+            <Label Text="{Binding SoldeCheque, StringFormat='Solde du compte cheque: {0}$'}" FontSize="34" TextColor="SkyBlue" FontAttributes="Bold" />
+            <Label Text="{Binding SoldeEpargne, StringFormat='Solde du compte epargne: {0}$'}" FontSize="34" TextColor="SkyBlue" FontAttributes="Bold" />
+        </VerticalStackLayout>
     </VerticalStackLayout>
 </ContentPage>
