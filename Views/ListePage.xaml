@@ -15,7 +15,7 @@
             <DataTemplate>
                 <StackLayout Orientation="Horizontal">
                     <Image Source="{Binding ImagePath}" WidthRequest="50" HeightRequest="50"/>
-                    <Label Text="{Binding DisplayInfo}" FontSize="18" TextColor="White"/>
+                    <Label Text="{Binding DisplayInfo}" LineBreakMode="WordWrap" FontSize="18" TextColor="White"/>
                 </StackLayout>
             </DataTemplate>
         </CollectionView.ItemTemplate>
