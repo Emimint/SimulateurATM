@@ -310,6 +310,8 @@ namespace SimulateurATM.Views
                     try
                     {
                         Guichet.VirementEpargne(currentClient.getNumeroNIP(), amount);
+                        SoldeEpargne = Guichet.getEpargne(currentClient.getNumeroNIP()).getSoldeCompte();
+                        SoldeCheque = Guichet.getCheque(currentClient.getNumeroNIP()).getSoldeCompte();
 
                         string message = $"Virement de {amount}$ de votre compte Epargne vers votre compte Cheque.";
                         ToastDuration duration = ToastDuration.Short;
